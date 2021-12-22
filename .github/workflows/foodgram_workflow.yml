@@ -69,8 +69,8 @@ jobs:
             sudo docker-compose stop
             sudo docker-compose rm backend
             sudo docker-compose rm frontend
-            rm .env
-            touch .env
+            sudo rm .env
+            sudo touch .env
             echo SECRET_KEY=${{ secrets.SECRET_KEY }} >> .env
             echo ALLOWED_HOSTS=${{ secrets.ALLOWED_HOSTS }} >> .env 
             echo DB_ENGINE=${{ secrets.DB_ENGINE }} >> .env
