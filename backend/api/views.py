@@ -54,13 +54,13 @@ class RecipeViewSet(ModelViewSet):
         )
         favorite = Favorite.objects.filter(user=self.request.user.id)
         shopping_cart = Shopping_cart.objects.filter(user=self.request.user.id)
-        if is_favorited == '1':
+        if is_favorited == 'true':
             queryset = queryset.filter(favorites__in=favorite)
-        elif is_favorited == '0':
+        elif is_favorited == 'false':
             queryset = queryset.exclude(favorites__in=favorite)
-        if is_in_shopping_cart == '1':
+        if is_in_shopping_cart == 'true':
             queryset = queryset.filter(shopping__in=shopping_cart)
-        elif is_in_shopping_cart == '0':
+        elif is_in_shopping_cart == 'false':
             queryset = queryset.exclude(shopping__in=shopping_cart)
         return queryset
 
