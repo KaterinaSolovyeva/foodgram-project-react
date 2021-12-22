@@ -6,6 +6,8 @@
 Адрес, на котором всё это можно видеть в сборе:
 - Администрирование
 http://www.yatubeproject.tk/admin/
+- API
+http://www.yatubeproject.tk/api/
 
 # Как запустить проект:
 
