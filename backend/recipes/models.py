@@ -118,8 +118,8 @@ class IngredientRecipe(models.Model):
 
     class Meta:
         """Дополнительная информация по управлению моделью IngredientRecipe."""
-        verbose_name = "Ингредиент для рецепта"
-        verbose_name_plural = "Ингредиенты для рецепта"
+        verbose_name = 'Ингредиент для рецепта'
+        verbose_name_plural = 'Ингредиенты для рецепта'
 
     def __str__(self):
         return f'{self.ingredients} для {self.recipe}'
@@ -129,7 +129,7 @@ class Favorite(models.Model):
     """Модель избранного рецепта."""
     user = models.ForeignKey(MyUser, on_delete=models.CASCADE,
                              verbose_name='Пользователь',
-                             related_name="favorites",
+                             related_name='favorites',
                              )
 
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE,
@@ -137,8 +137,8 @@ class Favorite(models.Model):
                                related_name='favorites')
 
     class Meta:
-        verbose_name = "Избранный рецепт"
-        verbose_name_plural = "Избранные рецепты"
+        verbose_name = 'Избранный рецепт'
+        verbose_name_plural = 'Избранные рецепты'
         ordering = ('recipe',)
 
     def __str__(self):
@@ -149,7 +149,7 @@ class Shopping_cart(models.Model):
     """Модель рецепта, добавленного в покупки."""
     user = models.ForeignKey(MyUser, on_delete=models.CASCADE,
                              verbose_name='Пользователь',
-                             related_name="shopping",
+                             related_name='shopping',
                              )
 
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE,
@@ -157,8 +157,8 @@ class Shopping_cart(models.Model):
                                related_name='shopping')
 
     class Meta:
-        verbose_name = "Список покупок"
-        verbose_name_plural = "Списки покупок"
+        verbose_name = 'Список покупок'
+        verbose_name_plural = 'Списки покупок'
         ordering = ('recipe',)
 
     def __str__(self):

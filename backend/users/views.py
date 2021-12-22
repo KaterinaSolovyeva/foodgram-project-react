@@ -23,7 +23,7 @@ class CustomUserViewSet(UserViewSet):
             data={'user': request.user, 'author': author},
             context={'request': request}
         )
-        if request.method == "GET":
+        if request.method == 'GET':
             serializer.is_valid(raise_exception=True)
             serializer.save(author=author, user=request.user)
             serializer = SubscriptionUserSerializer(author)

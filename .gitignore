@@ -130,3 +130,16 @@ dmypy.json
 
 # .idea
 .idea
+
+.vscode/
+*.code-workspace
+
+# Local History for Visual Studio Code
+.history/
+
+.mypy_cache
+
+# папки со статикой и медиа
+media/
+statiс/
+management/

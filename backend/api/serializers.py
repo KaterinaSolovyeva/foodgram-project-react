@@ -32,8 +32,8 @@ class FavoriteSerializer(serializers.ModelSerializer):
         return data
 
     def create(self, validated_data):
-        user = validated_data["user"]
-        recipe = validated_data["recipe"]
+        user = validated_data['user']
+        recipe = validated_data['recipe']
         Favorite.objects.get_or_create(user=user, recipe=recipe)
         return validated_data
 
@@ -55,8 +55,8 @@ class ShoppingSerializer(FavoriteSerializer):
         return data
 
     def create(self, validated_data):
-        user = validated_data["user"]
-        recipe = validated_data["recipe"]
+        user = validated_data['user']
+        recipe = validated_data['recipe']
         Shopping_cart.objects.get_or_create(user=user, recipe=recipe)
         return validated_data
 

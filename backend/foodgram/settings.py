@@ -1,12 +1,18 @@
 import os
 
+from dotenv import load_dotenv
+
+load_dotenv()
+os.path.expanduser('~')
+
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-SECRET_KEY = 'n6v9w5^@2d((nd^1d5pl=19&$=1!t(1$d9yjwo)6bl_#+)iwr%'
+SECRET_KEY = os.environ.get('SECRET_KEY', default=None)
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', default=None).split(',')
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -58,8 +64,12 @@ WSGI_APPLICATION = 'foodgram.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': os.getenv('DB_ENGINE'),
+        'NAME': os.getenv('DB_NAME', default='postgres'),
+        'USER': os.getenv('POSTGRES_USER', default='postgres'),
+        'PASSWORD': os.getenv('POSTGRES_PASSWORD', default='postgres'),
+        'HOST': os.getenv('DB_HOST', default='localhost'),
+        'PORT': os.getenv('DB_PORT')
     }
 }
 
@@ -115,9 +125,9 @@ REST_FRAMEWORK = {
 
 DJOSER = {
     'SERIALIZERS': {
-         'user_create': 'users.serializers.UserRegistrationSerializer',
-         'user': 'users.serializers.CustomUserSerializer',
-         'current_user': 'users.serializers.CustomUserSerializer',
+        'user_create': 'users.serializers.UserRegistrationSerializer',
+        'user': 'users.serializers.CustomUserSerializer',
+        'current_user': 'users.serializers.CustomUserSerializer',
     },
     'LOGIN_FIELD': 'email',
 }

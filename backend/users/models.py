@@ -86,14 +86,14 @@ class Subscription(models.Model):
 
     class Meta:
         """Дополнительная информация по управлению моделью Subscription."""
-        verbose_name = "Подписка"
-        verbose_name_plural = "Подписки"
-        constraints = [
+        verbose_name = 'Подписка'
+        verbose_name_plural = 'Подписки'
+        constraints = (
             models.constraints.UniqueConstraint(
-                fields=['user', 'author'],
+                fields=('user', 'author', ),
                 name='follow_unique'
             ),
-        ]
+        )
 
     def __str__(self):
         return f'{self.user} подписан на {self.author}'

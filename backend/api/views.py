@@ -54,13 +54,13 @@ class RecipeViewSet(ModelViewSet):
         )
         favorite = Favorite.objects.filter(user=self.request.user.id)
         shopping_cart = Shopping_cart.objects.filter(user=self.request.user.id)
-        if is_favorited == "1":
+        if is_favorited == '1':
             queryset = queryset.filter(favorites__in=favorite)
-        elif is_favorited == "0":
+        elif is_favorited == '0':
             queryset = queryset.exclude(favorites__in=favorite)
-        if is_in_shopping_cart == "1":
+        if is_in_shopping_cart == '1':
             queryset = queryset.filter(shopping__in=shopping_cart)
-        elif is_in_shopping_cart == "0":
+        elif is_in_shopping_cart == '0':
             queryset = queryset.exclude(shopping__in=shopping_cart)
         return queryset
 
@@ -76,7 +76,7 @@ class RecipeViewSet(ModelViewSet):
             data={'user': request.user.id, 'recipe': recipe.id},
             context={'request': request}
         )
-        if request.method == "GET":
+        if request.method == 'GET':
             serializer.is_valid(raise_exception=True)
             serializer.save(recipe=recipe, user=request.user)
             serializer = FavoriteRecipeSerializer(recipe)
