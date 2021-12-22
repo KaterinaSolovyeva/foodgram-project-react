@@ -13,7 +13,7 @@ services:
     #build: ./backend/
     restart: always
     volumes:
-      - static_value:/code/static/
+      - static_value:/code/static_backend/
       - media_value:/code/media/
     depends_on:
       - db
