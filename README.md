@@ -6,6 +6,7 @@
 Адрес, на котором всё это можно видеть в сборе:
 - Сайт «Продуктовый помощник»:
 - http://www.yatubeproject.tk
+- или http://www.yatubeproject.tk/recipes/
 - Администрирование
 http://www.yatubeproject.tk/admin/
 - API
