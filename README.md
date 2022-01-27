@@ -58,3 +58,6 @@ sudo docker-compose exec web python manage.py createsuperuser
 ```
 sudo docker -compose exec backend python manage.py loaddata dump.json
 ```
+### Над проектом работали: 
+- Frontend - https://github.com/yandex-praktikum/foodgram-project-react
+- Backend - https://github.com/KaterinaSolovyeva
